@@ -50,3 +50,4 @@ steps:
       ls ./src/build/reports/
       ls ./src//build/reports/coverage/
       ls ./src/build/reports/coverage/report-json
+      get-content ./src/build/reports/coverage/report-json/coverage-final.json
