@@ -38,7 +38,12 @@ steps:
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/testresults/junit/unit-test-result.xml'
-  
+
+# Dotnet core sdk task 7.0.x
+- task: UseDotNet@2
+  displayName: 'Use .NET Core sdk 7.0.x'
+  inputs:
+    version: 7.0.x  
 - task: PublishCodeCoverageResults@2
   inputs:
     summaryFileLocation: '**/testresults/coverage/code-coverage.xml'
