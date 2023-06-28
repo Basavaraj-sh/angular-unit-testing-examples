@@ -27,7 +27,6 @@ steps:
     command: 'custom'
     customCommand: 'run build'
 
-- script: npm install karma karma-coverage
 - task: Npm@1
   displayName: 'npm test'
   inputs:
@@ -38,19 +37,18 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: './src/build/reports/coverage/report-json/coverage-final.json'
+    testResultsFiles: '**/testresults/unit-test-result.xml'
 
-- task: PublishCodeCoverageResults@1
-  displayName: 'Publish code coverage report'
+- task: PublishCodeCoverageResults@2
   inputs:
-    codeCoverageTool: 'Cobertura'
-    summaryFileLocation: './src/build/reports/coverage/report-json/coverage-final.json'
-#- task: PowerShell@2
-#  inputs:
-#    targetType: 'inline'
-#    script: |
-#      # Write your PowerShell commands here.
-#      
+    summaryFileLocation: '**/testresults/coverage/code-coverage.xml'
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Write your PowerShell commands here.
+      tree      
 #      ls ./src/build/
 #      ls ./src/build/reports/
 #      ls ./src//build/reports/coverage/
