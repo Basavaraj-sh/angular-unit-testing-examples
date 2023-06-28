@@ -46,4 +46,7 @@ steps:
     script: |
       # Write your PowerShell commands here.
       
-      tree
+      ls ./build/
+      ls ./build/reports/
+      ls ./build/reports/coverage/
+      ls ./build/reports/coverage/report-json
