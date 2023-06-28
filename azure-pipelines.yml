@@ -39,9 +39,9 @@ steps:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/testresults/unit-test-result.xml'
 
-- task: PublishCodeCoverageResults@2
-  inputs:
-    summaryFileLocation: '**/testresults/coverage/code-coverage.xml'
+#- task: PublishCodeCoverageResults@2
+#  inputs:
+#    summaryFileLocation: '**/testresults/coverage/code-coverage.xml'
 
 - task: PowerShell@2
   inputs:
