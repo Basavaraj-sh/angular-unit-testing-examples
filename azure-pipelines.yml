@@ -39,3 +39,11 @@ steps:
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: './build/reports/coverage/*.xml'
+  
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Write your PowerShell commands here.
+      
+      tree
