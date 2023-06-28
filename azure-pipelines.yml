@@ -38,10 +38,11 @@ steps:
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/testresults/junit/unit-test-result.xml'
-
-#- task: PublishCodeCoverageResults@2
-#  inputs:
-#    summaryFileLocation: '**/testresults/coverage/code-coverage.xml'
+  
+- task: PublishCodeCoverageResults@2
+  inputs:
+    summaryFileLocation: '**/testresults/coverage/code-coverage.xml'
+  continueOnError: true
 
 - task: PowerShell@2
   inputs:
@@ -49,7 +50,7 @@ steps:
     script: |
       # Write your PowerShell commands here.
       tree      
-#      ls ./src/build/
+      ls ./src/testresults/coverage/
 #      ls ./src/build/reports/
 #      ls ./src//build/reports/coverage/
 #      ls ./src/build/reports/coverage/report-json
