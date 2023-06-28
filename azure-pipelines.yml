@@ -44,8 +44,9 @@ steps:
   displayName: 'Use .NET Core sdk 7.0.x'
   inputs:
     version: 7.0.x  
-- task: PublishCodeCoverageResults@2
+- task: PublishCodeCoverageResults@1
   inputs:
+    codeCoverageTool: Cobertura
     summaryFileLocation: '**/testresults/coverage/code-coverage.xml'
   continueOnError: true
 
