@@ -41,14 +41,14 @@ steps:
 
 # Dotnet core sdk task 7.0.x
 #- task: UseDotNet@2
-  displayName: 'Use .NET Core sdk 7.0.x'
-  inputs:
-    version: 7.0.x  
-#- task: PublishCodeCoverageResults@1
+#  displayName: 'Use .NET Core sdk 7.0.x'
 #  inputs:
-#    codeCoverageTool: Cobertura
-#    summaryFileLocation: '**/testresults/coverage/code-coverage.xml'
-#  continueOnError: true
+#    version: 7.0.x  
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: Cobertura
+    summaryFileLocation: '**/testresults/coverage/code-coverage.xml'
+  continueOnError: true
 
 - task: PowerShell@2
   inputs:
