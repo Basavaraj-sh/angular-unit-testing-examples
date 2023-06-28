@@ -38,16 +38,21 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: './build/reports/coverage/*.xml'
-  
-- task: PowerShell@2
+    testResultsFiles: './src/build/reports/coverage/report-json/coverage-final.json'
+
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish code coverage report'
   inputs:
-    targetType: 'inline'
-    script: |
-      # Write your PowerShell commands here.
-      
-      ls ./src/build/
-      ls ./src/build/reports/
-      ls ./src//build/reports/coverage/
-      ls ./src/build/reports/coverage/report-json
-      get-content ./src/build/reports/coverage/report-json/coverage-final.json
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: './src/build/reports/coverage/report-json/coverage-final.json'
+#- task: PowerShell@2
+#  inputs:
+#    targetType: 'inline'
+#    script: |
+#      # Write your PowerShell commands here.
+#      
+#      ls ./src/build/
+#      ls ./src/build/reports/
+#      ls ./src//build/reports/coverage/
+#      ls ./src/build/reports/coverage/report-json
+#     get-content ./src/build/reports/coverage/report-json/coverage-final.json
